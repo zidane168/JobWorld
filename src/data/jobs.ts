@@ -54,9 +54,10 @@ export const jobs = [
            
         ],
         location: [ 
-            "Dong Da Disrtict, Hanoi",
+            "Dong Da District",
+            "Hanoi",
             "District 4",
-            "Ho Chi Minh City", 
+            "HCM", 
         ],
         postDate: "2025/16/05",  
         salary: "Nego", 
