@@ -14,7 +14,7 @@ import "@/app/globals.css"
 
 export function Detail( { job } : { job : IJob}  ) {
     return (
-        <div className="container font-[20px] mx-auto shadow-2xl rounded-md bg-amber-50 mt-[20px] mb-[20px] p-4 text-justify">
+        <div className="container text-[20px] mx-auto shadow-2xl rounded-md bg-amber-50 mt-[20px] mb-[20px] p-4 text-justify">
             <div className="flex gap-2 items-center">
                 <TitleIcon />
                 <h2 className='bg-amber-400 p-2'> { job.title } </h2> 
@@ -30,7 +30,7 @@ export function Detail( { job } : { job : IJob}  ) {
                         <LocationIcon />
                         <div className='underline font-bold'> Location: </div>
                         { job.location.map( (loc, index) => {
-                            return   <div key={ index } className='text-[14px] font-bold rounded-md bg-amber-200 px-2  text-center'> { loc } </div>
+                            return   <div key={ index } className='text-[20px] font-bold rounded-md bg-amber-200 px-2  text-center'> { loc } </div>
                         })} 
                     </div> 
                     <div>
