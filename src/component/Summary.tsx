@@ -1,6 +1,8 @@
 import { IJob } from "@/types/jobs"; 
 import { TitleIcon } from "./icons/titleIcon";
 import { DomainIcon } from "./icons/domainIcon";
+import { WorkingTimeIcon } from "./icons/workingTime";
+import { ProcessInterviewIcon } from "./icons/processInterviewIcon";
 
 export function Summary( { job } : { job : IJob}  ) {
     return (
@@ -20,7 +22,7 @@ export function Summary( { job } : { job : IJob}  ) {
             </div> 
 
             <div>
-                <span className="underline font-bold flex gap-2 items-center">   <DomainIcon /> Domain: </span> 
+                <span className="font-bold flex gap-2 items-center">   <DomainIcon /> <span className="underline"> Domain: </span> </span> 
                 <ul className="px-6 list-disc">
                 {
                     job.domain.map( (domain, index) => {
@@ -31,14 +33,18 @@ export function Summary( { job } : { job : IJob}  ) {
             </div>
 
             { job.workingTime && (
-                <div>
+                <div className="gap-2 flex">
+                    <WorkingTimeIcon />
                     <span className="underline font-bold"> Working time: </span> { job.workingTime } 
                 </div>
             ) }
            
             <div className="flex justify-between">
                 <div>
-                    <span className="underline font-bold">Interview Process : </span>
+                    <div className="flex gap-2">
+                        <ProcessInterviewIcon />
+                        <span className="underline font-bold">Interview Process : </span>
+                    </div>
                     <ul className="px-6 list-disc">
                     {
                         job.interviewProcess.map( (interview, index) => {
