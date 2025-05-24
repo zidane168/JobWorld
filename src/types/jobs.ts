@@ -12,7 +12,7 @@ export interface IJob {
     domain: [],             // 
     interviewProcess: [],   //
     jobDescription: [],     //
-    languages: [],          //
+    language: [],          //
     level: [],              //
     location: [],           //
     salaryRange?: [], 

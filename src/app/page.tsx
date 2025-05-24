@@ -10,6 +10,7 @@ export default function Home() {
     const { jobs, page, loading, error, limit, fetchJobs }  = useStore()
     const [ remind, setRemind ] = useState('')
 
+
     useEffect(() => {  
         fetchJobs( );  
         const str = "Sau khi các bạn đã Apply Job, \

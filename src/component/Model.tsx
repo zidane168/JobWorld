@@ -1,4 +1,6 @@
-import { TitleIcon } from "./icons/titleIcon";
+import React, { MouseEventHandler } from 'react';
+import "@/app/Modal.css"
+import { CloseIcon } from './icons/closeIcon';
 import { IJob } from '@/types/jobs';
 import { DomainIcon } from './icons/domainIcon';
 import { WorkingTimeIcon } from './icons/workingTime';
@@ -10,16 +12,20 @@ import { JobDescriptionIcon } from './icons/jobDescriptionIcon';
 import { OurCompanyIcon } from './icons/ourCompanyIcon';
 import { BenefitIcon } from './icons/benefitIcon';
 import { LanguageIcon } from './icons/languageIcon';
-import "@/app/globals.css"
 
-export function Detail( { job } : { job : IJob}  ) {
-    return (
-        <div className="container font-[20px] mx-auto shadow-2xl rounded-md bg-amber-50 mt-[20px] mb-[20px] p-4 text-justify">
-            <div className="flex gap-2 items-center">
-                <TitleIcon />
-                <h2 className='bg-amber-400 p-2'> { job.title } </h2> 
+const Modal = ({ job, isOpen, onClose } : { job: IJob, isOpen: boolean, onClose: MouseEventHandler<HTMLButtonElement>}) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal-overlay flex flex-col overflow-y-scroll">  
+        <div className="modal-content">
+            <div className="flex justify-between items-center">
+                <h2 className='bg-amber-400 p-2'> { job.title } </h2>
+                <div>  
+                    <button  className='hover:scale-1.1' onClick={onClose}> <CloseIcon />   </button>  
+                </div>
             </div>
-            <div className=''>
+            <div className='mx-auto w-[1024px] text-justify'>
                 <div>
                     <div className='font-bold text-red-700 flex gap-2 items-center'> 
                         <SalaryIcon />
@@ -134,6 +140,8 @@ export function Detail( { job } : { job : IJob}  ) {
                 </div>
             </div>
         </div> 
-     
-    )
-}
+    </div>
+  );
+};
+
+export default Modal;
